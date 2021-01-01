@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Esta ruta es solo para desarrollo, para generar código de los formularios 
+Route::get('adminX/generar_form/{lista_tablas}', 'AdminController@generarForm');
