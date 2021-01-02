@@ -2,14 +2,14 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model;
+use App\Profesor;
 use Faker\Generator as Faker;
 
 $factory->define(Profesor::class, function (Faker $faker) {
     $data =  [
         'nombres' => $faker->firstname,
-        'apellido' =>$faker->lastname,  
+        'apellido' => $faker->lastname,
     ];
 
-    return $data ;
+    return $data;
 });
