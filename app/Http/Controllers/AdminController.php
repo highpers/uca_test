@@ -95,7 +95,7 @@ class AdminController extends Controller
                         // agregar código para el controlador
                         $htmlController .= '$' . "$tabla_referida = $model::pluck('nombre' , 'id');// verificar que el campo sea -nombre-";
 
-                        $htmlController .= '<br>$this->params[] = ' . "'$tabla_referida';<br>";
+                        $htmlController .= '<br>$params[] = ' . "'$tabla_referida';<br>";
 
                         $htmlUse .= '<br>use ' . $modelo . ';';
 

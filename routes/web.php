@@ -15,5 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+Route::resource('adminX/cursos', 'CursoController');
+Route::resource('adminX/alumnos', 'AlumnoController');
+
+
+//////////////////////////////////////////////////////////////////////////////
 // Esta ruta es solo para desarrollo, para generar código de los formularios 
 Route::get('adminX/generar_form/{lista_tablas}', 'AdminController@generarForm');

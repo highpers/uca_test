@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Curso;
+use DB;
+use App\Profesor_adjunto;
+use App\Profesor_suplente;
+use App\Profesor;
 use Illuminate\Http\Request;
+
+
 
 class CursoController extends Controller
 {
@@ -24,7 +30,16 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+
+        $title = 'Nuevo Curso';
+        $params = ['title'];
+
+        $profesors = DB::table("profesors")->select("id", DB::raw("CONCAT(apellido, ', ',nombres) as nombre_completo"))->where('deleted_at', NULL)->orderBy('nombre_completo')->pluck("nombre_completo", "id");
+
+        $params[] = 'profesors';
+       
+
+        return view('curso.create')->with(compact($params));
     }
 
     /**
@@ -35,7 +50,11 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos = $request->all();
+        // dd($datos);
+
+        Curso::create($datos);
+
     }
 
     /**

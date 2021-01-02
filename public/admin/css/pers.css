@@ -1,0 +1,212 @@
+#modalConfirm{
+    display:none;
+     padding-top:27px;width:368px;height:127px;text-align:center;
+     font-size:18px !important; z-index:20 !important; position:fixed;
+    /* top:182px;
+     right: 0; left: 0 ;
+     margin-right:  auto;
+     margin-left:  auto;*/
+     position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#modalConfirmEv{
+    display:none;
+     padding-top:27px;width:368px;height:127px;text-align:center;
+     font-size:18px !important; z-index:20 !important; position:fixed;
+    /* top:182px;
+     right: 0; left: 0 ;
+     margin-right:  auto;
+     margin-left:  auto;*/
+     position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+#cancelConfirmBorrar{
+  cursor:pointer ;
+}
+
+#cancelConfirmBorrarEv{
+  cursor:pointer ;
+}
+
+.fondoModalConfirm{
+    background: #f00; /* For browsers that do not support gradients */
+  background-image: linear-gradient(90deg, #ccd, #eee); border-radius: 18px;color:#666;
+
+}
+.fondoModalConfirm a{
+  color: #666 ;
+}
+.list-icon  {
+  color: #888;
+  font-size: 1.5em !important;
+  cursor:pointer;
+}
+
+.invisible_pers{
+  font-size:0px; color:white
+}
+
+.link_interno{
+  color: #888;
+}
+
+#historia_clinica{
+  display:none;
+}
+
+dl {
+  width: 100%;
+  margin-top: -21px;
+  font-size:15px ;
+}
+dt {
+  margin-top: 18px ;
+  line-height:169%;
+  font-weight: bold ; 
+}
+
+.texto_historia{
+  margin-top: 9px;
+}
+
+.link_anchor{
+  color:#4e73df !important;cursor:pointer;
+}
+
+.historia_modif{
+   text-align:right;margin-top:7px;font-size:0.9em
+}
+
+.lista_sesiones_agenda{
+  line-height: 172%;
+}
+
+.boton_chico{
+  font-size: 0.8rem !important; 
+  font-weight: bold !important;
+}
+
+
+td{
+  vertical-align: middle !important;
+}
+
+.list-icon.peq{
+  font-size: 1.16em !important;
+}
+
+.table-icon{
+  font-size:0.9em;
+}
+.even{
+  background: #f5f5fa;
+}
+
+th{
+  background: #bbc;
+  color: #336;
+  vertical-align:middle !important;
+}
+
+.cell_invisible{
+  border:none !important;
+  color:white;
+  background:white;
+}
+.th_iconos{
+  font-size:0.75em;
+}
+.tabla_pacientes{
+
+  font-size:0.99em;
+
+}
+
+::placeholder{
+overflow: visible;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 0.83em;
+   
+}
+
+.hora_compromiso{
+  float:left;
+  width:65%;
+  font-weight: bold;
+  padding:8px;
+}
+
+.sesion_agenda{
+  color: blue;
+}
+
+.evento_agenda{
+  background: #efefff;
+}
+.acciones_agenda{
+  float:left;
+  width:35%;
+  text-align:right;
+  /* color:blue; */
+}
+
+.titulo_evento{
+  line-height:122%;
+  margin-bottom:6px;
+  margin-top:21px;
+}
+
+.descripcion_evento{
+  font-size: 0.9em;
+  line-height: 129%;
+  font-weight: normal;
+}
+
+#mensaje{
+
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 18px;
+  text-align:center;
+  margin-left:9px;
+
+}
+
+#errores_form{
+  color:red ;
+  font-size:1.2em
+  
+}
+
+select, label{
+  font-size:1.19em !important;
+}
+
+.prompt-form{
+  font-size: 1.4em;
+}
+
+#links_nuevos_compromisos{
+
+  margin-top: -25px;
+  margin-bottom: 5px;
+  width:100%;
+
+}
+
+.req{
+  font-size:90%;
+  width:1.23em;
+  padding-right:8px;
+}
