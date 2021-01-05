@@ -8,8 +8,8 @@
 
 {!! Form::open(['url'=>'/adminX/cursos']) !!}
 
-{!! Form::label('Título del Curso - Materia') !!} <span class="badge badge-info req">*</span>      
-<input required maxlength="100" class="form-control" id="descripcion" name="descripcion" type="text">
+{!! Field::text('descripcion',  ['required' , 'maxlength'=>'100', 'label'=>'Título del Curso - Materia']) !!} 
+
 <br>
 {!! Field::text('horario' , [ 'required', 'maxlength' => '255',]) !!}    
 <br>{!! Form::label('profesor_id' , 'Profesor Titular') !!} <span class="badge badge-info req">*</span> 

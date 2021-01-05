@@ -36,10 +36,8 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/adminX">
-        <div class="sidebar-brand-icon rotate-n-15">
-        <img src="/admin/img/abir-logo-borromeo.png" style="width:32px">
-        </div>
-        <div class="sidebar-brand-text mx-3">Abir - Admin</div>
+        
+        <div class="sidebar-brand-text mx-3">UCA - Test</div>
       </a>
 
       <!-- Divider -->
@@ -60,14 +58,13 @@
       <!-- Nav Item - Pages Collapse Menu -->
 
       <li class="nav-item">
-              <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-sesiones" aria-expanded="false" aria-controls="opciones-sesiones">
-                <i class="fas fa-fw fa-user-clock"></i>  <span>Sesiones</span>
+              <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-cursos" aria-expanded="false" aria-controls="opciones-cursos">
+                <i class="fas fa-fw fa-user-clock"></i>  <span>Cursos</span>
               </a>
-              <div class="collapse" id="opciones-sesiones"  aria-labelledby="headingSesiones" data-parent="#accordionSidebar">
+              <div class="collapse" id="opciones-cursos"  aria-labelledby="headingCursos" data-parent="#accordionSidebar">
                 <div class="bg-celeste py-2 collapse-inner rounded">
-                  <a class="collapse-item" href="/adminX/sesiones/create" title="Cargar nueva sesión">Nueva</a>
-                  <a class="collapse-item" href="/adminX/sesiones" title="Listado de sesiones cargadas">Listado</a>
-                  <a class="collapse-item" href="/adminX/agenda"  title="Muestra agenda para hoy y calendario para consultar otro día">Agenda diaria</a>
+                  <a class="collapse-item" href="/adminX/cursos/create" title="Cargar nuevo curso">Nuevo</a>
+                  <a class="collapse-item" href="/adminX/cursos" title="Listado de cursos cargados">Listado</a>
                   {{-- <a class="collapse-item" href="/adminX/agenda_semanal"  title="Muestra agenda de esta semana">Agenda semanal</a> --}}
                   
 

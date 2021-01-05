@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use DB;
-use App\Profesor_adjunto;
-use App\Profesor_suplente;
-use App\Profesor;
+// use App\Profesor_adjunto;
+// use App\Profesor_suplente;
+// use App\Profesor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -68,7 +69,7 @@ class CursoController extends Controller
         // dd($datos);
 
         Curso::create($datos);
-
+        return redirect('/adminX/cursos/');
     }
 
     /**
@@ -108,8 +109,21 @@ class CursoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Curso $curso)
-    {
-        //
+    { 
+
+            $datos = $request->all();
+
+            if ($curso->update($datos)) {
+                $mensaje = 'El curso se actualizó correctamente';
+                $alert = 'success';
+            } else {
+                $mensaje = 'Error al actualizar el curso';
+                $alert = 'danger';
+            }
+            Session::flash('message', $mensaje);
+            Session::flash('alert', $alert);
+        return redirect('/adminX/cursos/');
+
     }
 
     /**
