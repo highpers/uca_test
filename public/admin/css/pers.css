@@ -105,6 +105,7 @@ td{
 
 .table-icon{
   font-size:0.9em;
+  text-align:center !important;
 }
 .even{
   background: #f5f5fa;

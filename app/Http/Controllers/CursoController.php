@@ -20,7 +20,23 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+       $title = 'Listado de cursos' ;
+       
+       $lista = Curso::orderBy('descripcion')->get();
+    
+       $lista = DB::table('cursos')
+                    ->join('profesors as titular', 'profesor_id', '=' , 'titular.id')
+                    ->join('profesors as adjunto', 'profesor_adjunto_id', '=' , 'adjunto.id')
+                    ->leftjoin('profesors as suplente', 'profesor_suplente_id', '=' ,'suplente.id')
+                    ->select('cursos.*','titular.apellido as apellido_titular' , 'titular.nombres as nombres_titular', 'adjunto.apellido as apellido_adjunto', 'adjunto.nombres as nombres_adjunto' ,'suplente.apellido as apellido_suplente', 'suplente.nombres as nombres_suplente')
+                    ->orderBy('descripcion')
+                    ->get();
+    //   dd($lista);
+
+       $params = ['title', 'lista'];
+
+       return view('curso.listado' , compact($params));
+
     }
 
     /**
@@ -32,14 +48,12 @@ class CursoController extends Controller
     {
 
         $title = 'Nuevo Curso';
-        $params = ['title'];
+        $params = ['title' , 'profesors'];
 
         $profesors = DB::table("profesors")->select("id", DB::raw("CONCAT(apellido, ', ',nombres) as nombre_completo"))->where('deleted_at', NULL)->orderBy('nombre_completo')->pluck("nombre_completo", "id");
 
-        $params[] = 'profesors';
-       
 
-        return view('curso.create')->with(compact($params));
+        return view('curso.create' , compact($params));
     }
 
     /**
@@ -76,7 +90,14 @@ class CursoController extends Controller
      */
     public function edit(Curso $curso)
     {
-        //
+
+        $title = 'Modificar Curso';
+        $params = ['title', 'profesors' , 'curso'];
+
+        $profesors = DB::table("profesors")->select("id", DB::raw("CONCAT(apellido, ', ',nombres) as nombre_completo"))->where('deleted_at', NULL)->orderBy('nombre_completo')->pluck("nombre_completo", "id");
+
+
+        return view('curso.edit', compact($params));
     }
 
     /**
