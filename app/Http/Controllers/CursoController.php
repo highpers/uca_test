@@ -21,23 +21,23 @@ class CursoController extends Controller
      */
     public function index()
     {
-       $title = 'Listado de cursos' ;
-       
-       $lista = Curso::orderBy('descripcion')->get();
-    
-       $lista = DB::table('cursos')
-                    ->join('profesors as titular', 'profesor_id', '=' , 'titular.id')
-                    ->join('profesors as adjunto', 'profesor_adjunto_id', '=' , 'adjunto.id')
-                    ->leftjoin('profesors as suplente', 'profesor_suplente_id', '=' ,'suplente.id')
-                    ->select('cursos.*','titular.apellido as apellido_titular' , 'titular.nombres as nombres_titular', 'adjunto.apellido as apellido_adjunto', 'adjunto.nombres as nombres_adjunto' ,'suplente.apellido as apellido_suplente', 'suplente.nombres as nombres_suplente')
-                    ->orderBy('descripcion')
-                    ->get();
-    //   dd($lista);
+        $title = 'Listado de cursos';
 
-       $params = ['title', 'lista'];
+        $lista = Curso::orderBy('descripcion')->get();
+// dd($lista) ;
+        $lista = DB::table('cursos')
+            ->whereNull('cursos.deleted_at')
+            ->join('profesors as titular', 'profesor_id', '=', 'titular.id')
+            ->join('profesors as adjunto', 'profesor_adjunto_id', '=', 'adjunto.id')
+            ->leftjoin('profesors as suplente', 'profesor_suplente_id', '=', 'suplente.id')
+            ->select('cursos.*', 'titular.apellido as apellido_titular', 'titular.nombres as nombres_titular', 'adjunto.apellido as apellido_adjunto', 'adjunto.nombres as nombres_adjunto', 'suplente.apellido as apellido_suplente', 'suplente.nombres as nombres_suplente')
+            ->orderBy('descripcion')
+            ->get();
+        //   dd($lista);
 
-       return view('curso.listado' , compact($params));
+        $params = ['title', 'lista'];
 
+        return view('curso.listado', compact($params));
     }
 
     /**
@@ -49,12 +49,12 @@ class CursoController extends Controller
     {
 
         $title = 'Nuevo Curso';
-        $params = ['title' , 'profesors'];
+        $params = ['title', 'profesors'];
 
         $profesors = DB::table("profesors")->select("id", DB::raw("CONCAT(apellido, ', ',nombres) as nombre_completo"))->where('deleted_at', NULL)->orderBy('nombre_completo')->pluck("nombre_completo", "id");
 
 
-        return view('curso.create' , compact($params));
+        return view('curso.create', compact($params));
     }
 
     /**
@@ -93,7 +93,7 @@ class CursoController extends Controller
     {
 
         $title = 'Modificar Curso';
-        $params = ['title', 'profesors' , 'curso'];
+        $params = ['title', 'profesors', 'curso'];
 
         $profesors = DB::table("profesors")->select("id", DB::raw("CONCAT(apellido, ', ',nombres) as nombre_completo"))->where('deleted_at', NULL)->orderBy('nombre_completo')->pluck("nombre_completo", "id");
 
@@ -109,21 +109,20 @@ class CursoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Curso $curso)
-    { 
+    {
 
-            $datos = $request->all();
+        $datos = $request->all();
 
-            if ($curso->update($datos)) {
-                $mensaje = 'El curso se actualizó correctamente';
-                $alert = 'success';
-            } else {
-                $mensaje = 'Error al actualizar el curso';
-                $alert = 'danger';
-            }
-            Session::flash('message', $mensaje);
-            Session::flash('alert', $alert);
+        if ($curso->update($datos)) {
+            $mensaje = 'El curso se actualizó correctamente';
+            $alert = 'success';
+        } else {
+            $mensaje = 'Error al actualizar el curso';
+            $alert = 'danger';
+        }
+        Session::flash('message', $mensaje);
+        Session::flash('alert', $alert);
         return redirect('/adminX/cursos/');
-
     }
 
     /**
@@ -134,6 +133,17 @@ class CursoController extends Controller
      */
     public function destroy(Curso $curso)
     {
-        //
+
+        if ($curso->delete()) {
+            $mensaje = 'Se ha eliminado el curso';
+            $alert = 'success';
+        } else {
+            $mensaje = 'Error al eliminar el curso';
+            $alert = 'danger';
+        }
+        Session::flash('message', $mensaje);
+        Session::flash('alert', $alert);
+
+        //return redirect('adminX/cursos'); // en principio el redirect se hace por javascript porque con este da error de métódo no permitido
     }
 }

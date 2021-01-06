@@ -20,8 +20,9 @@ class CreateAlumnosTable extends Migration
             $table->string('nombres' ,100);
             $table->string('apellido' , 100);
             $table->string('email' , 100);
-            $table->char('password' , 8);
-            $table->char('char' , 8);
+            $table->char('DNI', 8);
+            $table->char('password', 200);
+            
         });
     }
 

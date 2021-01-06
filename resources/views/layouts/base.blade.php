@@ -33,13 +33,16 @@
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/adminX">
+<div class="sidebar-brand-icon" style="margin-top:19px;text-align:center">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/adminX">  <img src="/admin/img/logo_uca.png" style="width:142px" vspace="6">
         
-        <div class="sidebar-brand-text mx-3">UCA - Test</div>
+      <!-- Sidebar - Brand -->
+      
+        
+        Test
+        
       </a>
-
+    </div>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -65,25 +68,20 @@
                 <div class="bg-celeste py-2 collapse-inner rounded">
                   <a class="collapse-item" href="/adminX/cursos/create" title="Cargar nuevo curso">Nuevo</a>
                   <a class="collapse-item" href="/adminX/cursos" title="Listado de cursos cargados">Listado</a>
-                  {{-- <a class="collapse-item" href="/adminX/agenda_semanal"  title="Muestra agenda de esta semana">Agenda semanal</a> --}}
-                  
-
               </div>
               </div>
             </li>
             <li class="nav-item">
-                       <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-pacientes" aria-expanded="false" aria-controls="opciones-pacientes">
-                         <i class="fas fa-fw fa-id-card"></i><span class="menu-title">Pacientes</span>
+                       <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-alumnos" aria-expanded="false" aria-controls="opciones-alumnos">
+                         <i class="fas fa-fw fa-id-card"></i><span class="menu-title">Alumnos</span>
 
                      </a>
-       	 <div class="collapse" id="opciones-pacientes" aria-labelledby="headingPacientes" data-parent="#accordionSidebar">
+       	 <div class="collapse" id="opciones-alumnos" aria-labelledby="headingAlumnos" data-parent="#accordionSidebar">
                      <div class="bg-celeste py-2 collapse-inner rounded">
 
-                        <a title="Cargar nuevo paciente" class="collapse-item" href="/adminX/pacientes/create">Nuevo</a>
-                        <a title="Listado de pacientes activos" class="collapse-item" href="/adminX/pacientes">Listado (Activos)</a>
-                        <a title="Listado de pacientes borrados" class="collapse-item" href="/adminX/1/pacientes">Listado (Inactivos)</a>
+                        <a title="Cargar nuevo alumno" class="collapse-item" href="/adminX/alumnos/create">Nuevo</a>
+                        <a title="Listado de alumnos" class="collapse-item" href="/adminX/alumnos">Listado</a>
                         
-                        <a title="Pacientes con deuda" class="collapse-item" href="/adminX/pacientes_deuda">Pacientes con deuda</a>
                      </div>
                      </div>
 
@@ -93,7 +91,7 @@
                         <i class="fas fa-fw fa-credit-card"></i><span class="menu-title">Autorizaciones</span>
 
                     </a>
-         <div class="collapse" id="opciones-autorizaciones" aria-labelledby="headingPacientes" data-parent="#accordionSidebar">
+         <div class="collapse" id="opciones-autorizaciones" aria-labelledby="headingAlumnos" data-parent="#accordionSidebar">
                     <div class="bg-celeste py-2 collapse-inner rounded">
 
                        <a title="Cargar nueva Autorización" class="collapse-item" href="/adminX/orden/create">Nueva</a>
@@ -110,7 +108,7 @@
                       <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-obras_sociales" aria-expanded="false" aria-controls="opciones-obras_sociales">
                         <i class="fas fa-fw fa-credit-card"></i><span class="menu-title">Obras Sociales</span>
                       </a>
-         <div class="collapse" id="opciones-obras_sociales" aria-labelledby="headingPacientes" data-parent="#accordionSidebar">
+         <div class="collapse" id="opciones-obras_sociales" aria-labelledby="headingAlumnos" data-parent="#accordionSidebar">
                     <div class="bg-celeste py-2 collapse-inner rounded">
 
                        <a title="Cargar nueva Obra Social" class="collapse-item" href="/adminX/obras_sociales/create">Nueva</a>
@@ -137,7 +135,7 @@
                                  </a>
                               <div class="collapse" id="pagos" aria-labelledby="headingPagos" data-parent="#accordionSidebar">
                                  <div class="bg-celeste py-2 collapse-inner rounded">
-                                     <a title="Cargar nuevo pago (Paciente)" class="collapse-item" href="/adminX/pago/create/paciente">Nuevo (Paciente)</a>
+                                     <a title="Cargar nuevo pago (Alumno)" class="collapse-item" href="/adminX/pago/create/alumno">Nuevo (Alumno)</a>
                                      <a title="Cargar nuevo pago (Obra Social)" class="collapse-item" href="/adminX/pago/create/obra_social">Nuevo (Obra social)</a>
                                      <a title="Listado de pagos" class="collapse-item" href="/adminX/pagos">Listado</a>
 
@@ -151,7 +149,7 @@
                                   </a>
                                <div class="collapse" id="cuentas" aria-labelledby="headingCuentas" data-parent="#accordionSidebar">
                                   <div class="bg-celeste py-2 collapse-inner rounded">
-                                      <a title="Resumen de cuentas de Pacientes" class="collapse-item" href="/adminX/cuentas_pacientes">Pacientes</a>
+                                      <a title="Resumen de cuentas de Alumnos" class="collapse-item" href="/adminX/cuentas_alumnos">Alumnos</a>
                                       <a title="Resumen de cuentas de Obras sociales" class="collapse-item" href="/adminX/pagos">Obra social</a>
                                       <a title="Resumen de cuentas General" class="collapse-item" href="/adminX/pagos">General</a>
 

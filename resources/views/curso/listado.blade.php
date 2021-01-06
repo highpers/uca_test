@@ -24,7 +24,7 @@ $header_footer = '<tr>
                     <tfoot>
                     {!! $header_footer !!}
                     </tfoot>
-                    <tbody class="tabla_pacientes">
+                    <tbody class="tabla_alumno">
                   @forelse ($lista as $curso)
                     @if(is_null($curso->profesor_suplente_id)) 
                       @php ( $suplente = 'no hay ' )
@@ -43,7 +43,7 @@ $header_footer = '<tr>
                         <td class="table-icon"><i class="fas fa-fw fa-trash-alt list-icon" title="Eliminar curso" name="borrar" id="itemDel-{{$curso->id}}"></i></td>
                         </tr>  
                    @empty 
-                      No hay cursos cargados     
+                         
                    @endforelse
                     </tbody>
                   </table>
@@ -52,6 +52,11 @@ $header_footer = '<tr>
                 </div>
  
  
+ @include('includes.modal_confirm' ,
+          ['idListeners' => 'dataTable' , 'urlBase' => '/adminX/cursos/' , 'labelPregunta' => ' del Curso' , 
+            'urlRedirect' => '/adminX/cursos'        
+
+          ])
 
           
 

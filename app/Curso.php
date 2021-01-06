@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Curso extends Model
 {
-    protected $fillable = ['profesor_adjunto_id', 'profesor_suplente_id', 'profesor_id', 'descripcion', 'horario'];
+    use SoftDeletes; 
+    protected $softDelete = true;
+    protected $fillable = ['profesor_adjunto_id', 'profesor_suplente_id', 'profesor_id', 'descripcion', 'horario', 'deleted_at'];
 
     public function profesor(){
 
