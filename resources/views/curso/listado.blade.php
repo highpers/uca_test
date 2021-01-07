@@ -26,8 +26,13 @@ $header_footer = '<tr>
                     </tfoot>
                     <tbody class="tabla_alumno">
                   @forelse ($lista as $curso)
+                    @if(is_null($curso->profesor_adjunto_id)) 
+                      @php ( $adjunto = 'No designado ' )
+                    @else
+                      @php ($adjunto = "$curso->apellido_adjunto, $curso->nombres_adjunto"  )
+                    @endif  
                     @if(is_null($curso->profesor_suplente_id)) 
-                      @php ( $suplente = 'no hay ' )
+                      @php ( $suplente = 'No designado ' )
                     @else
                       @php ($suplente = "$curso->apellido_suplente, $curso->nombres_suplente"  )
                     @endif  
@@ -36,7 +41,7 @@ $header_footer = '<tr>
                         <td>{{ $curso->descripcion }}</td>
                         <td>{{ $curso->horario }}</td>
                         <td>{{ $curso->apellido_titular }} , {{ $curso->nombres_titular }}</td>
-                        <td>{{ $curso->apellido_adjunto }} , {{ $curso->nombres_adjunto }}</td>
+                        <td>{{ $adjunto }}</td>
                         <td> {{ $suplente }} </td>
                          <td class="table-icon"><a href="/adminX/alumnos/{{$curso->id}}"><i class="fas fa-fw fa-eye list-icon" title="Ver alumnos inscriptos"></i></a></td> 
                          <td class="table-icon"><a href="/adminX/cursos/{{$curso->id}}/edit"><i class="fas fa-fw fa-edit list-icon" title="Modificar datos del curso"></a></td>

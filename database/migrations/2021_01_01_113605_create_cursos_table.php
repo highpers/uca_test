@@ -21,10 +21,10 @@ class CreateCursosTable extends Migration
             $table->string('horario', 255);
             $table->bigInteger('profesor_id');
             $table->foreign('profesor_id')->references('id')->on('profesors');
-            $table->bigInteger('profesor_adjunto_id');
-            $table->foreign('profesor_adjunto_id')->references('id')->on('profesors');
+            $table->bigInteger('profesor_adjunto_id')->nullable();
+           $table->foreign('profesor_adjunto_id')->references('id')->on('profesors');
             $table->bigInteger('profesor_suplente_id')->nullable();
-            //$table->foreign('profesor_suplente_id')->references('id')->on('profesors');
+           $table->foreign('profesor_suplente_id')->references('id')->on('profesors');
         });
     }
 

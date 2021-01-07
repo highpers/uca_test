@@ -28,7 +28,7 @@ class CursoController extends Controller
         $lista = DB::table('cursos')
             ->whereNull('cursos.deleted_at')
             ->join('profesors as titular', 'profesor_id', '=', 'titular.id')
-            ->join('profesors as adjunto', 'profesor_adjunto_id', '=', 'adjunto.id')
+            ->leftjoin('profesors as adjunto', 'profesor_adjunto_id', '=', 'adjunto.id')
             ->leftjoin('profesors as suplente', 'profesor_suplente_id', '=', 'suplente.id')
             ->select('cursos.*', 'titular.apellido as apellido_titular', 'titular.nombres as nombres_titular', 'adjunto.apellido as apellido_adjunto', 'adjunto.nombres as nombres_adjunto', 'suplente.apellido as apellido_suplente', 'suplente.nombres as nombres_suplente')
             ->orderBy('descripcion')
@@ -68,7 +68,16 @@ class CursoController extends Controller
         $datos = $request->all();
         // dd($datos);
 
-        Curso::create($datos);
+        if (Curso::create($datos)) {
+            $mensaje = 'El curso se creó correctamente';
+            $alert = 'success';
+        } else {
+            $mensaje = 'Error al crear el curso';
+            $alert = 'danger';
+        }
+        Session::flash('message', $mensaje);
+        Session::flash('alert', $alert);
+
         return redirect('/adminX/cursos/');
     }
 

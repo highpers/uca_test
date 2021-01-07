@@ -1,0 +1,21 @@
++--------+-----------+------------------------------------+-----------------+--------------------------------------------------+--------------+
+| Domain | Method    | URI                                | Name            | Action                                           | Middleware   |
++--------+-----------+------------------------------------+-----------------+--------------------------------------------------+--------------+
+|        | GET|HEAD  | /                                  |                 | Closure                                          | web          |
+|        | GET|HEAD  | adminX/alumnos                     | alumnos.index   | App\Http\Controllers\AlumnoController@index      | web          |
+|        | POST      | adminX/alumnos                     | alumnos.store   | App\Http\Controllers\AlumnoController@store      | web          |
+|        | GET|HEAD  | adminX/alumnos/create              | alumnos.create  | App\Http\Controllers\AlumnoController@create     | web          |
+|        | DELETE    | adminX/alumnos/{alumno}            | alumnos.destroy | App\Http\Controllers\AlumnoController@destroy    | web          |
+|        | GET|HEAD  | adminX/alumnos/{alumno}            | alumnos.show    | App\Http\Controllers\AlumnoController@show       | web          |
+|        | PUT|PATCH | adminX/alumnos/{alumno}            | alumnos.update  | App\Http\Controllers\AlumnoController@update     | web          |
+|        | GET|HEAD  | adminX/alumnos/{alumno}/edit       | alumnos.edit    | App\Http\Controllers\AlumnoController@edit       | web          |
+|        | GET|HEAD  | adminX/cursos                      | cursos.index    | App\Http\Controllers\CursoController@index       | web          |
+|        | POST      | adminX/cursos                      | cursos.store    | App\Http\Controllers\CursoController@store       | web          |
+|        | GET|HEAD  | adminX/cursos/create               | cursos.create   | App\Http\Controllers\CursoController@create      | web          |
+|        | DELETE    | adminX/cursos/{curso}              | cursos.destroy  | App\Http\Controllers\CursoController@destroy     | web          |
+|        | GET|HEAD  | adminX/cursos/{curso}              | cursos.show     | App\Http\Controllers\CursoController@show        | web          |
+|        | PUT|PATCH | adminX/cursos/{curso}              | cursos.update   | App\Http\Controllers\CursoController@update      | web          |
+|        | GET|HEAD  | adminX/cursos/{curso}/edit         | cursos.edit     | App\Http\Controllers\CursoController@edit        | web          |
+|        | GET|HEAD  | adminX/generar_form/{lista_tablas} |                 | App\Http\Controllers\AdminController@generarForm | web          |
+|        | GET|HEAD  | api/user                           |                 | Closure                                          | api,auth:api |
++--------+-----------+------------------------------------+-----------------+--------------------------------------------------+--------------+

@@ -8,6 +8,25 @@ use Illuminate\Support\Facades\Session;
 
 class AlumnoController extends Controller
 {
+
+    private    $reglas = [
+        'DNI' => 'required|numeric|digits: 8|unique:alumnos,DNI',
+        'apellido' => 'required',
+        'nombres' => 'required',
+        'email' => 'required|regex:/(.+)@(.+)\.(.+)/i|unique:alumnos,email',
+    ];
+
+    private  $mensajes = [
+        'DNI.digits' => 'El DNI debe ser de 8 caracteres',
+        'DNI.unique' => 'El DNI ya se encuentra registrado',
+        'email.unique' => 'El email ya se encuentra registrado',
+        'email.regex' => 'El email debe ser válido',
+        'password.min' => 'La password debe contener al menos 8 caracteres',
+        'password.regex' => 'La password debe contener al menos una letra mayúscula, al menos una minúscula y al menos un número',
+    ];
+
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -45,11 +64,29 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->reglas['password'] =  [
+            'required',
+            'string',
+            'min:8',             // must be at least 10 characters in length
+            'regex:/[a-z]/',      // must contain at least one lowercase letter
+            'regex:/[A-Z]/',      // must contain at least one uppercase letter
+            'regex:/[0-9]/',      // must contain at least one digit
+
+        ];
+         
+        $this->validate($request, $this->reglas, $this->mensajes);
         $datos = $request->all();
         $datos['password'] = bcrypt($datos['password']);
-        //   dd($datos);
-
-        Alumno::create($datos);
+        
+        if (Alumno::create($datos)) {
+            $mensaje = 'El alumno se cargó correctamente';
+            $alert = 'success';
+        } else {
+            $mensaje = 'Error al cargar el curso';
+            $alert = 'danger';
+        }
+        Session::flash('message', $mensaje);
+        Session::flash('alert', $alert);
         return redirect('/adminX/alumnos/');
     }
 
@@ -72,7 +109,12 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        $title = 'Modificar alumno' ;
+
+        $params = ['title' , 'alumno'] ;
+
+        return view('alumno.edit' , compact($params));
+
     }
 
     /**
@@ -84,7 +126,24 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
-        //
+      // corrijo la validación de email y DNI, para que permita cargar los mismos email y DNI sin rebotar por la regla unique   
+        $this->reglas['DNI'] .= ','.$alumno->id;
+        $this->reglas['email'] .= ','.$alumno->id;
+
+        $this->validate($request, $this->reglas, $this->mensajes);
+        $datos = $request->all();
+
+        if ($alumno->update($datos)) {
+            $mensaje = 'El alumno se modificó correctamente';
+            $alert = 'success';
+        } else {
+            $mensaje = 'Error al modificar el alumno';
+            $alert = 'danger';
+        }
+        Session::flash('message', $mensaje);
+        Session::flash('alert', $alert);
+
+        return redirect('/adminX/alumnos/');
     }
 
     /**

@@ -15,8 +15,8 @@
 <br>{!! Form::label('profesor_id' , 'Profesor Titular') !!} <span class="badge badge-info req">*</span> 
 {!! Form::select('profesor_id' , $profesors, null, ['placeholder' => '-- Seleccionar --','class'=>'form-control', 'required'] ) !!} 
 <br>
-{!! Form::label('profesor_adjunto_id' , 'Profesor adjunto') !!} <span class="badge badge-info req">*</span>   
-{!! Form::select('profesor_adjunto_id' , $profesors, null, ['placeholder' => '-- Seleccionar --','class'=>'form-control', 'required'] ) !!}
+{!! Form::label('profesor_adjunto_id' , 'Profesor adjunto') !!}  
+{!! Form::select('profesor_adjunto_id' , $profesors, null, ['placeholder' => '-- Seleccionar --','class'=>'form-control', ] ) !!}
 <br>{!! Form::label('profesor_suplente_id' , 'Profesor suplente') !!}
 {!! Form::select('profesor_suplente_id' , $profesors, null, ['placeholder' => '-- Seleccionar --','class'=>'form-control'] ) !!}
 <br>
