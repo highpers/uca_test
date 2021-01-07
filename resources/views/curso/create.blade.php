@@ -8,7 +8,7 @@
 
 {!! Form::open(['url'=>'/adminX/cursos']) !!}
 
-{!! Field::text('descripcion',  ['required' , 'maxlength'=>'100', 'label'=>'Título del Curso - Materia']) !!} 
+{!! Field::text('descripcion',  ['required' , 'maxlength'=>'100', 'label'=>'Título del Curso / Materia']) !!} 
 
 <br>
 {!! Field::text('horario' , [ 'required', 'maxlength' => '255',]) !!}    

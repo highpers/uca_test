@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Inscripcion;
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class InscripcionController extends Controller
 {
@@ -30,7 +32,9 @@ class InscripcionController extends Controller
 
         $cursos = DB::table("cursos")->select("id", DB::raw("CONCAT(descripcion, ' - ', horario) as curso"))->where('deleted_at', NULL)->orderBy('curso')->pluck("curso", "id");
 
-        $params[] = ['title' , 'alumnos', 'cursos'];
+        $ancho_combo = '468px';
+
+        $params[] = ['title' , 'alumnos', 'cursos' , 'ancho_combo'];
 
         return view('inscripcion.create' , compact($params));
     }
@@ -43,7 +47,30 @@ class InscripcionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $datos = $request->all();
+
+        if(Inscripcion::where('alumno_id' , $datos['alumno_id'])->where('curso_id' , $datos['curso_id'])->first()){
+
+        $mensaje = 'Ya estaba registrada esta inscripción';
+        $alert = 'warning';
+
+        }else{
+
+            if(Inscripcion::create($datos)){
+                $mensaje = 'Se registró la inscripción';
+                $alert = 'success';
+            } else {
+                $mensaje = 'Error al registrar la inscripción';
+                $alert = 'danger';
+            }
+        }
+
+        Session::flash('message', $mensaje);
+        Session::flash('alert', $alert);
+
+        return redirect('/adminX/inscripciones/create');
+        
     }
 
     /**

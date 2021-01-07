@@ -12,4 +12,11 @@ class Alumno extends Model
     protected $fillable = [
         'nombres', 'apellido', 'password', 'email' , 'DNI', 'deleted_at'
     ];
+
+    public function cursos()
+    {
+
+        return $this->belongsToMany('App/Curso');
+    }
+  
 }

@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::resource('adminX/cursos', 'CursoController');
 Route::resource('adminX/alumnos', 'AlumnoController');
+Route::resource('adminX/inscripciones' , 'InscripcionController');
 
 
 //////////////////////////////////////////////////////////////////////////////

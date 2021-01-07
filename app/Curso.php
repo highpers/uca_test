@@ -18,6 +18,11 @@ class Curso extends Model
 
     }
 
+    public function alumnos(){
+
+        return $this->belongsToMany('App/Alumno') ;
+
+    }
   
 }
 

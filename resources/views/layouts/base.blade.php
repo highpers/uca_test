@@ -86,84 +86,26 @@
                      </div>
 
            </li>
-            <li class="nav-item">
-                      <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-autorizaciones" aria-expanded="false" aria-controls="opciones-autorizaciones">
-                        <i class="fas fa-fw fa-credit-card"></i><span class="menu-title">Autorizaciones</span>
-
-                    </a>
-         <div class="collapse" id="opciones-autorizaciones" aria-labelledby="headingAlumnos" data-parent="#accordionSidebar">
-                    <div class="bg-celeste py-2 collapse-inner rounded">
-
-                       <a title="Cargar nueva Autorización" class="collapse-item" href="/adminX/orden/create">Nueva</a>
-                       <a title="Listado de autorizaciones - Detalle" class="collapse-item" href="/adminX/orden">Listado</a>
-                    </div>        </div>
-
-          </li>
+            
           <li class="nav-item">
-                    <a class="nav-link collapsed"  href="/adminX/eventos/create" >
-                        <i class="fas fa-fw fa-calendar-plus" style="font-size:1.21em !important"></i><span class="menu-title">Agendar evento</span>
+                    <a class="nav-link collapsed"  href="/adminX/inscripciones/create" >
+                        <i class="fas fa-fw fa-calendar-plus" style="font-size:1.21em !important"></i><span class="menu-title">Nueva inscripción</span>
                     </a>
            </li>                    
            <li class="nav-item">
-                      <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-obras_sociales" aria-expanded="false" aria-controls="opciones-obras_sociales">
-                        <i class="fas fa-fw fa-credit-card"></i><span class="menu-title">Obras Sociales</span>
+                      <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-api" aria-expanded="false" aria-controls="opciones-api">
+                        <i class="fas fa-fw fa-credit-card"></i><span class="menu-title">API Rest</span>
                       </a>
-         <div class="collapse" id="opciones-obras_sociales" aria-labelledby="headingAlumnos" data-parent="#accordionSidebar">
+         <div class="collapse" id="opciones-api" aria-labelledby="headingAlumnos" data-parent="#accordionSidebar">
                     <div class="bg-celeste py-2 collapse-inner rounded">
 
-                       <a title="Cargar nueva Obra Social" class="collapse-item" href="/adminX/obras_sociales/create">Nueva</a>
-                       <a title="Listado de Obras sociales - Detalle" class="collapse-item" href="/adminX/obras_sociales">Listado</a>
+                       <a title="API Rest Alumnos" class="collapse-item" href="/adminX/obras_sociales/create">Alumnos</a>
+                       <a title="API Rest Cursos - Detalle" class="collapse-item" href="/adminX/obras_sociales">Cursos</a>
                     </div>
                     </div>
 
           </li>
-                   <li class="nav-item">
-                                  <a class="nav-link collapsed" data-toggle="collapse" href="#facturas" aria-expanded="false" aria-controls="facturas">
-                                    <i class="fas fa-fw fa-receipt"></i><span class="menu-title">Facturas</span>
-                                </a>
-                             <div class="collapse" id="facturas" aria-labelledby="headingFacturas" data-parent="#accordionSidebar">
-                                <div class="bg-celeste py-2 collapse-inner rounded">
-                                    <a title="Cargar nueva factura" class="collapse-item" href="/adminX/facturas/create">Nueva</a>
-                                    <a title="Listado de facturas" class="collapse-item" href="/adminX/facturas">Listado</a>
-
-                                </div>
-                                </div>
-                    </li>
-                    <li class="nav-item">
-                                   <a class="nav-link collapsed" data-toggle="collapse" href="#pagos" aria-expanded="false" aria-controls="pagos"><i class="fas fa-fw fa-money-bill"></i>
-                                   <span class="menu-title">Pagos</span>
-                                 </a>
-                              <div class="collapse" id="pagos" aria-labelledby="headingPagos" data-parent="#accordionSidebar">
-                                 <div class="bg-celeste py-2 collapse-inner rounded">
-                                     <a title="Cargar nuevo pago (Alumno)" class="collapse-item" href="/adminX/pago/create/alumno">Nuevo (Alumno)</a>
-                                     <a title="Cargar nuevo pago (Obra Social)" class="collapse-item" href="/adminX/pago/create/obra_social">Nuevo (Obra social)</a>
-                                     <a title="Listado de pagos" class="collapse-item" href="/adminX/pagos">Listado</a>
-
-                                 </div>
-                                 </div>
-                     </li>
-
-                     <li class="nav-item">
-                                    <a class="nav-link collapsed" data-toggle="collapse" href="#cuentas" aria-expanded="false" aria-controls="cuentas"><i class="fas fa-fw fa-calculator"></i>
-                                    <span class="menu-title">Resúmenes de cuenta</span>
-                                  </a>
-                               <div class="collapse" id="cuentas" aria-labelledby="headingCuentas" data-parent="#accordionSidebar">
-                                  <div class="bg-celeste py-2 collapse-inner rounded">
-                                      <a title="Resumen de cuentas de Alumnos" class="collapse-item" href="/adminX/cuentas_alumnos">Alumnos</a>
-                                      <a title="Resumen de cuentas de Obras sociales" class="collapse-item" href="/adminX/pagos">Obra social</a>
-                                      <a title="Resumen de cuentas General" class="collapse-item" href="/adminX/pagos">General</a>
-
-                                  </div>
-                                  </div>
-                      </li>
-                      <hr class="sidebar-divider my-0">
-
-                      <!-- Nav Item - Dashboard -->
-                      <li class="nav-item">
-                        <a class="nav-link" href="/adminX/config">
-                          <i class="fas fa-fw fa-cog"></i>
-                          <span>Configuración</span></a>
-                      </li>
+                   
                    {{-- FIN MENÚ --}}
       <hr class="sidebar-divider d-none d-md-block">
 
