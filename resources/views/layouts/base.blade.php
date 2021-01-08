@@ -62,7 +62,7 @@
 
       <li class="nav-item">
               <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-cursos" aria-expanded="false" aria-controls="opciones-cursos">
-                <i class="fas fa-fw fa-user-clock"></i>  <span>Cursos</span>
+                <i class="fas fa-fw fa-chalkboard-teacher"></i>  <span>Cursos</span>
               </a>
               <div class="collapse" id="opciones-cursos"  aria-labelledby="headingCursos" data-parent="#accordionSidebar">
                 <div class="bg-celeste py-2 collapse-inner rounded">
@@ -94,7 +94,7 @@
            </li>                    
            <li class="nav-item">
                       <a class="nav-link collapsed" data-toggle="collapse" href="#opciones-api" aria-expanded="false" aria-controls="opciones-api">
-                        <i class="fas fa-fw fa-credit-card"></i><span class="menu-title">API Rest</span>
+                        <i class="fas fa-fw fa-database"></i><span class="menu-title">API Rest</span>
                       </a>
          <div class="collapse" id="opciones-api" aria-labelledby="headingAlumnos" data-parent="#accordionSidebar">
                     <div class="bg-celeste py-2 collapse-inner rounded">
@@ -106,7 +106,12 @@
                     </div>
 
           </li>
-                   
+          <li class="nav-item">
+          
+                    <a class="nav-link collapsed"  href="javascript:logout()" data-toggle="modal" data-target="#logoutModal" >
+                        <i class="fas fa-fw fa-sign-out-alt" style="font-size:1.21em !important"></i><span class="menu-title">Salir</span>
+                    </a>
+           </li>           
                    {{-- FIN MENÚ --}}
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -159,7 +164,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div style="font-size: 0.93em;margin-top:28px;text-align:right !important;color:#bbf;font-style:oblique !important">
-            <span>Copyright &copy; ABIR 2020</span>
+           
           </div>
         </div>
       </footer>
@@ -195,6 +200,29 @@
     </div>
   </div>
 
+
+<!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¿Confirmás cierre de la sesión?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary" href="javascript:logout()">Confirmar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/admin/js/funcs-pers.js"></script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="/admin/js/funcs-pers.js"></script>
