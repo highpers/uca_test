@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alumno;
+use App\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -167,5 +168,27 @@ class AlumnoController extends Controller
         // return redirect('adminX/alumnos'); // en principio el redirect se hace por javascript porque con este solo da error de métódo no permitido y si lo dejo con el de javascript no se llega a ver el mensaje de confirmación
     }
 
-    
+    /**
+     * Lista los cursos en que se inscribió el alumno
+     * 
+     * @param Alumno $alumno
+     * 
+     */
+
+
+    public function inscripciones(Alumno $alumno){
+
+        $title  = 'Inscripciones del alumno '. strtoupper($alumno->apellido). ", $alumno->nombres";
+
+        $cursos= $alumno->cursos ;
+
+        $params = ['title', 'cursos' , 'alumno'];
+        
+
+        return view('inscripcion.cursosXalumno' , compact($params));
+       
+
+    }
+
+
 }

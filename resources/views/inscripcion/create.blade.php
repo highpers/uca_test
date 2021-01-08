@@ -13,7 +13,7 @@
 
 {!! Form::select('alumno_id' , $alumnos, null, ['placeholder' => '-- Seleccionar --','class'=>'form-control',  'required','style'=>'width:'.$ancho_combo] ) !!}
 
-<br>{!! Form::label('curso_id' , 'Curso') !!} <span class="badge badge-info req">*</span> 
+<br>{!! Form::label('curso_id' , 'Curso / Materia') !!} <span class="badge badge-info req">*</span> 
 
 {!! Form::select('curso_id' , $cursos, null, ['placeholder' => '-- Seleccionar --','class'=>'form-control',  'required', 'style'=>'width:'.$ancho_combo] ) !!}
 <br>

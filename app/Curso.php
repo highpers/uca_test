@@ -14,13 +14,13 @@ class Curso extends Model
 
     public function profesor(){
 
-        return $this->belongsto('Profesor::class');
+        return $this->belongsto('App\Profesor');
 
     }
 
     public function alumnos(){
 
-        return $this->belongsToMany('App/Alumno') ;
+        return $this->belongsToMany('App\Alumno') ;
 
     }
   

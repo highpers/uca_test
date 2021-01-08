@@ -43,7 +43,7 @@ $header_footer = '<tr>
                         <td>{{ $curso->apellido_titular }} , {{ $curso->nombres_titular }}</td>
                         <td>{{ $adjunto }}</td>
                         <td> {{ $suplente }} </td>
-                         <td class="table-icon"><a href="/adminX/alumnos/{{$curso->id}}"><i class="fas fa-fw fa-eye list-icon" title="Ver alumnos inscriptos"></i></a></td> 
+                         <td class="table-icon"><a href="/adminX/inscriptos/{{$curso->id}}"><i class="fas fa-fw fa-eye list-icon" title="Ver alumnos inscriptos"></i></a></td> 
                          <td class="table-icon"><a href="/adminX/cursos/{{$curso->id}}/edit"><i class="fas fa-fw fa-edit list-icon" title="Modificar datos del curso"></a></td>
                         <td class="table-icon"><i class="fas fa-fw fa-trash-alt list-icon" title="Eliminar curso" name="borrar" id="itemDel-{{$curso->id}}"></i></td>
                         </tr>  

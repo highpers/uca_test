@@ -155,4 +155,24 @@ class CursoController extends Controller
 
         //return redirect('adminX/cursos'); // en principio el redirect se hace por javascript porque con este da error de métódo no permitido
     }
+
+/**
+ * Lista los alumnos inscriptos al curso y
+ *
+ * @param curso $curso
+ * 
+ */
+    function inscriptos(curso $curso){
+
+        $title  = "Alumnos inscriptos";
+        
+        $alumnos = $curso->alumnos;
+
+        $params = ['title', 'curso', 'alumnos'];
+
+
+        return view('inscripcion.alumnosXcurso', compact($params));
+
+
+    }
 }

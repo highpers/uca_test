@@ -19,7 +19,11 @@ Route::get('/', function () {
 
 Route::resource('adminX/cursos', 'CursoController');
 Route::resource('adminX/alumnos', 'AlumnoController');
-Route::resource('adminX/inscripciones' , 'InscripcionController');
+
+Route::get('adminX/inscripciones/create' , 'InscripcionController@create');
+Route::get('adminX/inscriptos/{curso}' , 'CursoController@inscriptos');
+Route::get('adminX/inscripciones/{alumno}' , 'AlumnoController@inscripciones');
+
 
 
 //////////////////////////////////////////////////////////////////////////////
