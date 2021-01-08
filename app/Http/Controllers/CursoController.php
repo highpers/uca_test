@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use DB;
-// use App\Profesor_adjunto;
-// use App\Profesor_suplente;
-// use App\Profesor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 

@@ -35,10 +35,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 <div class="sidebar-brand-icon" style="margin-top:19px;text-align:center">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/adminX">  <img src="/admin/img/logo_uca.png" style="width:142px" vspace="6">
-        
-      <!-- Sidebar - Brand -->
-      
-        
+     
         Test
         
       </a>
@@ -55,8 +52,6 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider">
-
-
 
       <!-- Nav Item - Pages Collapse Menu -->
 

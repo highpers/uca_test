@@ -9,19 +9,6 @@ class AdminController extends Controller
 {
 
 
-    function index()
-    {
-
-        foreach ($this->params as $k) {
-            $$k = '';
-        }
-
-        // $title='Inicio';
-        //  $buscador = 0 ;
-        // $params = $this->params;
-        // return view('admin.inicio')->with(compact($this->params));
-        return redirect()->route('agenda');
-    }
 
     function generarForm($lista_tablas)
     {
@@ -39,17 +26,17 @@ class AdminController extends Controller
             $html = '<h3>Form ' . $tabla . '</h3>';
             $fillable = '<h4>Fillable para model</h4>protected $fillable = [';
             $html .= "{!! Form::open(['url'=>'/adminX/$tabla']) !!}<br>";
-           
+
 
             // para postgres
             // $results = DB::select(DB::raw("SELECT * FROM information_schema.columns WHERE table_name = '$tabla'"));
             $results = DB::select(DB::raw("SELECT column_name, data_type, column_default, is_nullable FROM information_schema.columns WHERE table_name = '$tabla'"));
 
-// dd($results);
+            // dd($results);
             // muestraArrayUobjetoDD($results, __FILE__, __LINE__, 0 , 0) ;
 
             foreach ($results as $campo) {
-                if (in_array($campo->column_name, $campos_excluidos) or strpos($campo->data_type,'timestamp') !== false) continue;
+                if (in_array($campo->column_name, $campos_excluidos) or strpos($campo->data_type, 'timestamp') !== false) continue;
                 $fillable .= " '$campo->column_name' ,";
                 if (empty($campo->column_default)) {
                     $default = '';
@@ -77,8 +64,7 @@ class AdminController extends Controller
 
                         // necesito saber la tabla referenciada
                         $obj = new $modelo;
-                        // die($modelo. ' En línea '.__LINE__);
-                        // print_r($obj);
+
                         if (empty($obj->tabla_referida)) {
                             $tabla_referida = substr($campo->column_name, 0, -3) . 's';
                         } else {

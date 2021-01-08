@@ -32,7 +32,7 @@ $header_footer = '<tr>
                         <td>{{ $alumno->nombres }}</td>
                         <td>{{ $alumno->email }} </td>
                         <td>{{ $alumno->DNI}} </td>
-                         <td class="table-icon"><a href="/adminX/inscripciones/{{$alumno->id}}"><i class="fas fa-fw fa-eye list-icon" title="Ver inscripciones"></i></a></td> 
+                         <td class="table-icon"><a href="/adminX/inscripciones/{{$alumno->id}}"><i class="fas fa-fw fa-chalkboard-teacher list-icon" title="Ver inscripciones"></i></a></td> 
                          <td class="table-icon"><a href="/adminX/alumnos/{{$alumno->id}}/edit"><i class="fas fa-fw fa-edit list-icon" title="Modificar datos del alumno"></a></td>
                         <td class="table-icon"><i class="fas fa-fw fa-trash-alt list-icon" title="Eliminar alumno" name="borrar" id="itemDel-{{$alumno->id}}"></i></td>
                         </tr>  
