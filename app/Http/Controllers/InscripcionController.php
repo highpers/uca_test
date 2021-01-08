@@ -113,8 +113,19 @@ class InscripcionController extends Controller
      * @param  \App\Inscripcion  $inscripcion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Inscripcion $inscripcion)
+    public function destroy(int $id_curso, int $id_alumno )
     {
-        //
+
+        $inscripcion = Inscripcion::where('curso_id' , $id_curso)->where('alumno_id' , $id_alumno)->first();
+        if ($inscripcion->delete()) {
+            $mensaje = 'Se ha eliminado la inscripcion';
+            $alert = 'success';
+        } else {
+            $mensaje = 'Error al eliminar la inscripcion';
+            $alert = 'danger';
+        }
+        Session::flash('message', $mensaje);
+        Session::flash('alert', $alert);
+
     }
 }

@@ -99,8 +99,9 @@
          <div class="collapse" id="opciones-api" aria-labelledby="headingAlumnos" data-parent="#accordionSidebar">
                     <div class="bg-celeste py-2 collapse-inner rounded">
 
-                       <a title="API Rest Alumnos" class="collapse-item" href="/adminX/obras_sociales/create">Alumnos</a>
-                       <a title="API Rest Cursos - Detalle" class="collapse-item" href="/adminX/obras_sociales">Cursos</a>
+                       <a title="API Rest Alumnos totales" class="collapse-item" href="/api/alumnos_inscriptos/0" target="_blank">Alumnos (totales)</a>
+                       <a title="API Rest Alumnos inscriptos" class="collapse-item" href="/api/alumnos_inscriptos/1" target="_blank">Alumnos (solo inscriptos)</a>
+                       <a title="API Rest Cursos - Detalle" class="collapse-item" href="/api/cursos" target="_blank">Cursos</a>
                     </div>
                     </div>
 

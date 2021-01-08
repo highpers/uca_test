@@ -21,8 +21,10 @@ Route::resource('adminX/cursos', 'CursoController');
 Route::resource('adminX/alumnos', 'AlumnoController');
 
 Route::get('adminX/inscripciones/create' , 'InscripcionController@create');
+Route::post('adminX/inscripciones' , 'InscripcionController@store');
 Route::get('adminX/inscriptos/{curso}' , 'CursoController@inscriptos');
 Route::get('adminX/inscripciones/{alumno}' , 'AlumnoController@inscripciones');
+Route::delete('adminX/inscripciones/{id_curso}/{id_alumno}' , 'InscripcionController@destroy');
 
 
 

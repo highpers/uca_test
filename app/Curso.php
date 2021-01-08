@@ -8,21 +8,31 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Curso extends Model
 {
-    use SoftDeletes; 
+    use SoftDeletes;
     protected $softDelete = true;
     protected $fillable = ['profesor_adjunto_id', 'profesor_suplente_id', 'profesor_id', 'descripcion', 'horario', 'deleted_at'];
 
-    public function profesor(){
+    public function profesor()
+    {
 
         return $this->belongsto('App\Profesor');
-
     }
 
-    public function alumnos(){
+    public function profesor_adjunto()
+    {
 
-        return $this->belongsToMany('App\Alumno') ;
-
+        return $this->belongsto('App\Profesor');
     }
-  
+
+    public function profesor_suplente()
+    {
+
+        return $this->belongsto('App\Profesor');
+    }
+
+    public function alumnos()
+    {
+
+        return $this->belongsToMany('App\Alumno');
+    }
 }
-

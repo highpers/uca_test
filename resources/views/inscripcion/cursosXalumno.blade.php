@@ -37,12 +37,11 @@ $header_footer = '<tr>
                 </div>
  
  
- @include('includes.modal_confirm' ,
-          ['idListeners' => 'dataTable' , 'urlBase' => '/adminX/alumnos/' , 'labelPregunta' => ' del Alumno' , 
-            'urlRedirect' => '/adminX/alumnos'        
+ @include('includes.modal_confirm_inscripciones' ,
+          ['idListeners' => 'dataTable' , 'urlBase' => '/adminX/inscripciones/' , 'labelPregunta' => ' de la inscripción' , 
+            'urlRedirect' => '/adminX/inscripciones/'.$alumno->id        
 
           ])
-
           
 
-@endsection
+@endsection 

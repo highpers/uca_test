@@ -44,8 +44,8 @@ $header_footer = '<tr>
  
  
  @include('includes.modal_confirm_inscripciones' ,
-          ['idListeners' => 'dataTable' , 'urlBase' => '/adminX/alumnos/' , 'labelPregunta' => ' de la inscripcion' , 
-            'urlRedirect' => '/adminX/inscriptos' ,        
+          ['idListeners' => 'dataTable' , 'urlBase' => '/adminX/inscripciones/' , 'labelPregunta' => ' de la inscripcion' , 
+            'urlRedirect' => '/adminX/inscriptos/'.$curso->id ,        
 
           ])
 

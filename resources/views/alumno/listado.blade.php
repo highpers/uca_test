@@ -8,7 +8,7 @@ $header_footer = '<tr>
                     <th>Nombres</th>
                     <th>Email</th>
                     <th>DNI</th>
-                    <th class="th_iconos">Inscriptos</th>
+                    <th class="th_iconos">Inscripciones</th>
                     <th class="th_iconos">Modificar</th>
                     <th class="th_iconos">Borrar</th>
                </tr>'; 

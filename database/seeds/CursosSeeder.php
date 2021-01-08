@@ -12,23 +12,23 @@ class CursosSeeder extends Seeder
     public function run()
     {
         DB::table('cursos')->insert([
-            'descripcion' => 'Curso de cocina',
+            'descripcion' => 'Taller de dibujo',
             'horario' => 'Viernes de 20 a 22.30',
-            'profesor_id' => rand(1,80),
-            'profesor_adjunto_id' => rand(1,80),
-            'profesor_suplente_id' => rand(1,80)
+            'profesor_id' => rand(1, 30),
+            'profesor_adjunto_id' => rand(1, 30),
+            'profesor_suplente_id' => rand(1, 30)
         ]);
 
         DB::table('cursos')->insert([
             'descripcion' => 'Algebra elemental',
             'horario' => 'Lunes y Miércoles de 15 a 16.45',
-            'profesor_id' => rand(1, 80),
-            'profesor_adjunto_id' => rand(1, 80),
-            'profesor_suplente_id' => rand(1, 80)
+            'profesor_id' => rand(1, 30),
+            'profesor_adjunto_id' => rand(1, 30),
+            'profesor_suplente_id' => rand(1, 30)
         ]);
 
         DB::table('cursos')->insert([
-            'descripcion' => 'Teoría del placebo',
+            'descripcion' => 'Historia del Arte 1',
             'horario' => 'Lun. 14.30 a 16.15 - Mier. de 13.45 a 15.15',
             'profesor_id' => rand(1, 80),
             'profesor_adjunto_id' => rand(1, 80),
@@ -43,7 +43,7 @@ class CursosSeeder extends Seeder
             'profesor_suplente_id' => rand(1, 80)
         ]);
         DB::table('cursos')->insert([
-            'descripcion' => 'Derecho Rumano',
+            'descripcion' => 'Derecho Romano',
             'horario' => 'Martes y viernes de 9 a 10.45',
             'profesor_id' => rand(1, 80),
             'profesor_adjunto_id' => rand(1, 80),

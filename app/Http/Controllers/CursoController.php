@@ -24,7 +24,7 @@ class CursoController extends Controller
         $title = 'Listado de cursos';
 
         $lista = Curso::orderBy('descripcion')->get();
-// dd($lista) ;
+        // dd($lista) ;
         $lista = DB::table('cursos')
             ->whereNull('cursos.deleted_at')
             ->join('profesors as titular', 'profesor_id', '=', 'titular.id')
@@ -156,23 +156,27 @@ class CursoController extends Controller
         //return redirect('adminX/cursos'); // en principio el redirect se hace por javascript porque con este da error de métódo no permitido
     }
 
-/**
- * Lista los alumnos inscriptos al curso y
- *
- * @param curso $curso
- * 
- */
-    function inscriptos(curso $curso){
+    /**
+     * Lista los alumnos inscriptos al curso y
+     *
+     * @param curso $curso
+     * 
+     */
+    public function inscriptos(curso $curso)
+    {
 
         $title  = "Alumnos inscriptos";
-        
+
         $alumnos = $curso->alumnos;
 
         $params = ['title', 'curso', 'alumnos'];
 
 
         return view('inscripcion.alumnosXcurso', compact($params));
+    }
 
-
+    public function api()
+    {
+        return Curso::with('profesor')->with('profesor_adjunto')->with('profesor_suplente')->with('alumnos')->orderBy('descripcion')->get();
     }
 }

@@ -27,7 +27,7 @@ class AlumnoController extends Controller
     ];
 
 
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +39,7 @@ class AlumnoController extends Controller
 
         $lista = Alumno::orderBy('apellido')->orderBy('nombres')->get();
 
-        $params = ['title' , 'lista'];
+        $params = ['title', 'lista'];
 
         return view('alumno.listado', compact($params));
     }
@@ -54,7 +54,7 @@ class AlumnoController extends Controller
 
         $title = 'Nuevo alumno';
 
-        return view('alumno.create',['title'=>$title]);
+        return view('alumno.create', ['title' => $title]);
     }
 
     /**
@@ -74,11 +74,11 @@ class AlumnoController extends Controller
             'regex:/[0-9]/',      // must contain at least one digit
 
         ];
-         
+
         $this->validate($request, $this->reglas, $this->mensajes);
         $datos = $request->all();
         $datos['password'] = bcrypt($datos['password']);
-        
+
         if (Alumno::create($datos)) {
             $mensaje = 'El alumno se cargó correctamente';
             $alert = 'success';
@@ -110,12 +110,11 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        $title = 'Modificar alumno' ;
+        $title = 'Modificar alumno';
 
-        $params = ['title' , 'alumno'] ;
+        $params = ['title', 'alumno'];
 
-        return view('alumno.edit' , compact($params));
-
+        return view('alumno.edit', compact($params));
     }
 
     /**
@@ -127,9 +126,9 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
-      // corrijo la validación de email y DNI, para que permita cargar los mismos email y DNI sin rebotar por la regla unique   
-        $this->reglas['DNI'] .= ','.$alumno->id;
-        $this->reglas['email'] .= ','.$alumno->id;
+        // corrijo la validación de email y DNI, para que permita cargar los mismos email y DNI sin rebotar por la regla unique   
+        $this->reglas['DNI'] .= ',' . $alumno->id;
+        $this->reglas['email'] .= ',' . $alumno->id;
 
         $this->validate($request, $this->reglas, $this->mensajes);
         $datos = $request->all();
@@ -176,19 +175,37 @@ class AlumnoController extends Controller
      */
 
 
-    public function inscripciones(Alumno $alumno){
+    public function inscripciones(Alumno $alumno)
+    {
 
-        $title  = 'Inscripciones del alumno '. strtoupper($alumno->apellido). ", $alumno->nombres";
+        $title  = 'Inscripciones del alumno ' . strtoupper($alumno->apellido) . ", $alumno->nombres";
 
-        $cursos= $alumno->cursos ;
+        $cursos = $alumno->cursos;
 
-        $params = ['title', 'cursos' , 'alumno'];
-        
+        $params = ['title', 'cursos', 'alumno'];
 
-        return view('inscripcion.cursosXalumno' , compact($params));
-       
 
+        return view('inscripcion.cursosXalumno', compact($params));
     }
 
 
+    /**
+     *  Genera la api de alumnos. Todos si inscriptos es false, solo los insciptos a cursos si es true
+     * 
+     *  @param bool $solo_inscriptos
+     * 
+     *  
+     */
+
+    public function api(bool $solo_inscriptos = false)
+    {
+        if ($solo_inscriptos) {
+            $resp = Alumno::with('cursos')->has('cursos')->orderBy('apellido')->orderBy('nombres')->get();
+        } else {
+            $resp = Alumno::with('cursos')->orderBy('apellido')->orderBy('nombres')->get();
+        }
+        $resp->makeHidden(['password']);
+
+        return ($resp);
+    }
 }

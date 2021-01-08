@@ -15,7 +15,6 @@ class CreateAlumnoCursoTable extends Migration
     {
         Schema::create('alumno_curso', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->softDeletes();
             $table->timestamps();
             $table->bigInteger('curso_id');
             $table->foreign('curso_id')->references('id')->on('cursos');
