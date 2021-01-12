@@ -174,6 +174,10 @@ class CursoController extends Controller
 
     public function api()
     {
-        return Curso::with('profesor')->with('profesor_adjunto')->with('profesor_suplente')->with('alumnos')->orderBy('descripcion')->get();
+        $resp = Curso::with('profesor')->with('profesor_adjunto')->with('profesor_suplente')->with('alumnos')->orderBy('descripcion')->get();
+
+        $resp->makeHidden(['alumnos.password']);
+
+        return $resp;
     }
 }
